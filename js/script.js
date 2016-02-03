@@ -1,18 +1,18 @@
 /*Criando um modulo*/ 
 		angular.module("listaTele", []);
 		/* Lendo um modulo */
-		angular.module("listaTele").controller("listaCtrl", function ($scope){
+		angular.module("listaTele").controller("listaCtrl", function ($scope, $filter){
 			$scope.app = "Lista Telefônica";
 			$scope.contatos = [
-				{nome: "Pedro", telefone: "8888-8888" , cor: "red"},
-				{nome: "Ana", telefone: "8888-8887" , cor: "blue"},
-				{nome: "Maria", telefone: "8888-8886" , cor: "green"}
+				{nome: $filter('uppercase')("Pedro"), telefone: "8888-8888" , data: new Date(), operadora: {nome:"Oi", codigo: "12"}, cor: "red"},
+				{nome: "Ana", telefone: "8888-8887" ,  data: new Date(), operadora: {nome:"Tim", codigo: "18"}, cor: "blue"},
+				{nome: "Maria", telefone: "8888-8886" , data: new Date(), operadora: {nome:"Vivo", codigo: "15"}, cor: "green"}
 			];
 			$scope.operadoras = [
-				{nome: "Oi", codigo: "12"},
-				{nome: "Vivo", codigo: "15"},
-				{nome: "Tim", codigo: "18"},
-				{nome: "Claro", codigo: "19"}
+				{nome: "Oi", codigo: "12", preco: 3},
+				{nome: "Vivo", codigo: "15", preco: 1},
+				{nome: "Tim", codigo: "18", preco: 4},
+				{nome: "Claro", codigo: "19", preco: 2}
 			];
 
 			$scope.apagarContatos = function (contatos){
@@ -33,4 +33,10 @@
 				});
 				return a;
 			}
+
+			$scope.ordenarPor = function(campo){
+				$scope.criterioOrdenacao = campo;
+				$scope.direcaoOrdenacao = !$scope.direcaoOrdenacao;
+			}
+
 		});	
