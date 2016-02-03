@@ -43,16 +43,17 @@
 		<!-- Fazendo o select da operadora  -->
 		<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' )' for operadora in operadoras | orderBy:'nome'">
 			<option value="">Selecione uma operadora</option>
-		</select>
+		</select><br/>
 
 		<button class="btn btn-info btn-block" ng-click="adicionarContatos(contato)" ng-disabled="!contato.nome || !contato.telefone">Adicionar Contatos</button>
 		<button class="btn btn-success btn-block" ng-click="apagarContatos(contatos)" ng-show="mandar(contatos)">Apagar Contatos</button>
 		<br/>{{10 | number:2}}
 		</div>
+
+		<!-- FAZENDO RODAPÉ -->
+		<div ng-include="'rodape.html'"></div>
+
 	</div>
-	
-	<!-- FAZENDO RODAPÉ -->
-	<div ng-include="'rodape.html'"></div>
 
 	<!-- Usando limit to
 		tenho o nome Pedro.
