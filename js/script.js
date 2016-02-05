@@ -17,7 +17,7 @@
 				contatosAPI.getContatos().success(function(data){
 					$scope.contatos = data;
 				}).error(function(data,status){
-					$scope.message = "Aconteceu um erro! " + data;
+					$scope.message = "Aconteceu um erro!";
 				});
 			};
 
