@@ -17,6 +17,8 @@
 	<script type="text/javascript" src="js/nameFilter.js"></script>
 	<script type="text/javascript" src="js/limitFilter.js"></script>
 	<script type="text/javascript" src="js/uiAlertDirective.js"></script>
+	<script type="text/javascript" src="js/uiDateDirective.js"></script>
+	<script type="text/javascript" src="js/uiAccordionDirective.js"></script>
 </head>
 
 
@@ -25,6 +27,16 @@
 
 		<div class="organiza">
 		<h4>{{app}}</h4>
+		<acordions>
+		<acordion title="Accordion 1">
+			Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+		</acordion>
+
+		<acordion title="Accordion 2">
+			Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+		</acordion>
+		</acordions>
+		<hr/>
 
 		<msg title="Ops, deu um erro!">
 			{{message}}
@@ -54,6 +66,7 @@
 
 		<input class="form-control" ng-model="contato.nome" placeholder="Nome" />
 		<input class="form-control" ng-model="contato.telefone" placeholder="Telefone" />
+		<input mascaradata class="form-control" ng-model="contato.data" placeholder="Data" id="data" />
 		
 		<!-- Fazendo o select da operadora  -->
 		<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' )' for operadora in operadoras | orderBy:'nome'">
