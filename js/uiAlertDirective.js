@@ -5,8 +5,8 @@ angular.module("listaTele").directive("msg", function(){
 		restrict: "E", 
 		scope :{
 			title : "@", 
-			message: "=mensagem"
-		}
+		},
+		transclude: true
 	};
 });
 

@@ -25,7 +25,10 @@
 
 		<div class="organiza">
 		<h4>{{app}}</h4>
-		<msg title="Ops, deu um erro!" mensagem="message"></msg>
+
+		<msg title="Ops, deu um erro!">
+			{{message}}
+		</msg>
 		
 		<input type="text" class="form-control" ng-model="buscarNome" placeholder="O que deseja consultar?">
 		<table ng-show="contatos.length > 0" class="table">
