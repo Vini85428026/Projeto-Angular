@@ -33,7 +33,7 @@
 			$scope.adicionarContatos = function (contato){
 				contato.serial = serialGenerator.generate();
 				contatosAPI.saveContato(contato).success( function (data){
-					delete $scope.contato;
+					$scope.contato = null;
 					carregarContatos();
 				});
 			};

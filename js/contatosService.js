@@ -1,6 +1,6 @@
 angular.module("listaTele").factory("contatosAPI", function ($http, config) {
 	var _getContatos = function () { //"_" significa que é do tipo private
-		return $http.get(config.url + "/contatos");
+		return $http.get(config.url + "/contatos/obter");
 	};
 
 	var _saveContato = function (contato) {

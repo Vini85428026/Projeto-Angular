@@ -11,23 +11,7 @@ angular.module("listaTele").directive("mascaradata", function($filter){
 					date = date.substring(0,5) + "/" + date.substring(5,9);
 				}
 				return date;
-			};
-
-			element.bind("keyup", function(){
-				ctrl.$setViewValue(_formatData(ctrl.$viewValue));
-				ctrl.$render();
-			});
-
-			ctrl.$parsers.push(function (value) {
-				if (value.length === 10) {
-					var dateArray = value.split("/");
-					return new Date(dateArray[2], dateArray[1]-1, dateArray[0]).getTime();
-				}
-			});
-
-			ctrl.$formatters.push(function (value) {
-				return $filter("date")(value, "dd/MM/yyyy");
-			});
+			};			
 		}
 	};
 });

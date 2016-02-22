@@ -27,7 +27,7 @@
 
 		<div class="organiza">
 		<h4>{{app}}</h4>
-		<acordions>
+		<!--<acordions>
 		<acordion title="Accordion 1">
 			Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
 		</acordion>
@@ -35,12 +35,14 @@
 		<acordion title="Accordion 2">
 			Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
 		</acordion>
-		</acordions>
+		</acordions>-->
 		<hr/>
 
 		<msg title="Ops, deu um erro!">
 			{{message}}
 		</msg>
+		
+			
 		
 		<input type="text" class="form-control" ng-model="buscarNome" placeholder="O que deseja consultar?">
 		<table ng-show="contatos.length > 0" class="table">
@@ -49,7 +51,7 @@
 				<th>Serial</th>
 				<th><a href="#" ng-click="ordenarPor('nome')">Nome</a></th>
 				<th><a href="#" ng-click="ordenarPor('telefone')">Telefone</a></th>
-				<th><a href="#" ng-click="ordenarPor('operadora.nome')">Operadora</a></th>
+				<th><a href="#" ng-click="ordenarPor('operadora')">Operadora</a></th>
 				<th><a href="#" ng-click="ordenarPor('data')">Data</a></th>
 				<th></th>
 			</tr>
@@ -58,19 +60,23 @@
 				<td>{{contato.serial}}</td>
 				<td>{{contato.nome | name | limite:13}}</td>
 				<td>{{contato.telefone}}</td>
-				<td>{{contato.operadora.nome}}</td>
+				<td>{{contato.operadora}}</td>
 				<td>{{contato.data | date:'dd/MM/yyyy'}}</td>
 				<td><div style="width:20px;height:20px;" ng-style="{'background-color':contato.cor}"></div></td>
 			</tr>
 		</table>
 
-		<input class="form-control" ng-model="contato.nome" placeholder="Nome" />
-		<input class="form-control" ng-model="contato.telefone" placeholder="Telefone" />
-		<input mascaradata class="form-control" ng-model="contato.data" placeholder="Data" id="data" />
+		<input class="form-control" ng-model="contato.nome" placeholder="Nome" name="nome" />
+		<input class="form-control" ng-model="contato.telefone" placeholder="Telefone" name="telefone" />
+		<input mascaradata class="form-control" ng-model="contato.data" placeholder="Data" id="data" name="data" />
 		
 		<!-- Fazendo o select da operadora  -->
-		<select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome + ' ( ' + (operadora.preco | currency) + ' )' for operadora in operadoras | orderBy:'nome'">
+		<select class="form-control" ng-model="contato.operadora">
 			<option value="">Selecione uma operadora</option>
+			<option name="operadora" value="Claro">Claro</option>
+			<option name="operadora" value="Tim">Tim</option>
+			<option name="operadora" value="Oi">Oi</option>
+			<option name="operadora" value="Vivo">Vivo</option>
 		</select><br/>
 
 		<button class="btn btn-info btn-block" ng-click="adicionarContatos(contato)" ng-disabled="!contato.nome || !contato.telefone">Adicionar Contatos</button>
